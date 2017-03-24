@@ -17,9 +17,10 @@ import theme from "./lib/theme";
 
 export class Jobs extends Component {
   render() {
-    const { data: { error, loading, allJobs: jobs } } = this.props;
+    const { id, data: { error, loading, allJobs: jobs } } = this.props;
     return (
       <Block
+        props={{ id }}
         backgroundColor={theme.projects.backgroundColor}
         padding="3.5rem 0"
       >

@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { ApolloProvider } from "react-apollo";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Route } from "react-router";
+import "smoothscroll";
 
 import App from "./App";
 
@@ -20,7 +23,9 @@ import client from "./lib/apolloClient";
 ReactDOM.render(
   <ThemeProvider>
     <ApolloProvider client={client}>
-      <App />
+      <Router>
+        <Route path="/" component={App} />
+      </Router>
     </ApolloProvider>
   </ThemeProvider>,
   document.getElementById("root")

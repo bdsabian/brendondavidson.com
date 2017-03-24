@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 import { gql, graphql } from "react-apollo";
 import { ScaleLoader } from "halogen";
 import { Motion, spring } from "react-motion";
@@ -10,39 +10,25 @@ import Col from "jsxstyle/Col";
 import Button from "./components/Button";
 import Carousel from "./components/Carousel";
 import Container from "./components/Container";
-import ScrollLink from "./components/ScrollLink";
 
 import compose from "./lib/compose";
 import deviceSize from "./lib/deviceSize";
 import theme from "./lib/theme";
 
 export class Intro extends Component {
-  constructor(props) {
-    super(props);
-
-    this.scrollToAbout = this.scrollToAbout.bind(this);
-  }
-
-  static contextTypes = {
-    scrollToRoute: PropTypes.func
-  };
-
-  scrollToAbout() {
-    this.context.scrollToRoute("/about");
-  }
-
   render() {
-    const { data, tiny } = this.props;
+    const { data, id, tiny } = this.props;
     const { loading, allImages } = data;
 
     const height = "42rem";
     const learnMoreButton = (
-      <Button component={ScrollLink} to="/about">Learn About Me</Button>
+      <Button component="a" href="#about">Learn About Me</Button>
     );
     const images = allImages ? allImages.map(i => i.src) : [];
     const springConfig = { stiffness: 120, damping: 20 };
     return (
       <Block
+        id={{ id }}
         position="relative"
         backgroundColor="#0D5D94"
         margin="0"

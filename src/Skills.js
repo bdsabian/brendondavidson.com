@@ -13,10 +13,14 @@ import theme from "./lib/theme";
 
 export class Skills extends Component {
   render() {
-    const { error, loading, allSkills: skills } = this.props.data;
+    const { id, data: { error, loading, allSkills: skills } } = this.props;
 
     return (
-      <Block padding="2.5rem 0" backgroundColor={theme.skills.backgroundColor}>
+      <Block
+        props={{ id }}
+        padding="2.5rem 0"
+        backgroundColor={theme.skills.backgroundColor}
+      >
         <Container>
           <SectionHeading>My Skills and Technology Experience</SectionHeading>
           <SectionSubHeading>

@@ -12,9 +12,13 @@ import theme from "./lib/theme";
 
 export class About extends Component {
   render() {
-    const { error, loading, allTexts: aboutParagraphs } = this.props.data;
+    const {
+      id,
+      data: { error, loading, allTexts: aboutParagraphs }
+    } = this.props;
     return (
       <Block
+        props={{ id }}
         textAlign="center"
         backgroundColor={theme.about.backgroundColor}
         color={theme.about.color}

@@ -5,18 +5,19 @@ import Block from "jsxstyle/Block";
 import Row from "jsxstyle/Row";
 
 import Container from "./Container";
-import ScrollLink from "./ScrollLink";
 import Sticky from "./Sticky";
 
 export class StaticNavbar extends Component {
   static propTypes = {
     hideLinks: PropTypes.bool,
+    homeLinkUrl: PropTypes.string,
     style: PropTypes.object,
     links: PropTypes.array.isRequired
   };
 
   static defaultProps = {
     hideLinks: true,
+    homeLinkUrl: "#page-top",
     style: {}
   };
 
@@ -26,7 +27,7 @@ export class StaticNavbar extends Component {
   }
 
   render() {
-    const { hideLinks, style, links } = this.props;
+    const { hideLinks, homeLinkUrl, style, links } = this.props;
 
     const linkStyle = {
       color: "#fff",
@@ -60,17 +61,17 @@ export class StaticNavbar extends Component {
           alignItems="center"
           display="flex !important"
         >
-          <ScrollLink
+          <a
             style={{
               color: "#fff",
               fontSize: "20px",
               textTransform: "uppercase",
               textDecoration: "none"
             }}
-            to="/"
+            href={homeLinkUrl}
           >
             Brendon Davidson
-          </ScrollLink>
+          </a>
           {!hideLinks &&
             <Row flex="2" alignItems="center" justifyContent="flex-end">
               {links.map((link, i) => (
@@ -80,13 +81,13 @@ export class StaticNavbar extends Component {
                   border="2px solid transparent"
                 >
                   {link.callback &&
-                    <ScrollLink to={link.href} style={linkStyle}>
+                    <a href={link.href} style={linkStyle}>
                       {link.text}
-                    </ScrollLink>}
+                    </a>}
                   {!link.callback &&
-                    <ScrollLink to={link.href} style={linkStyle}>
+                    <a href={link.href} style={linkStyle}>
                       {link.text}
-                    </ScrollLink>}
+                    </a>}
                 </Block>
               ))}
             </Row>}

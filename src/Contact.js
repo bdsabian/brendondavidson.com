@@ -101,8 +101,11 @@ export class Contact extends Component {
 
   render() {
     const { submitted } = this.state;
+    const { id } = this.props;
+
     return (
       <Block
+        props={{ id }}
         backgroundColor={theme.contact.backgroundColor}
         padding="1.75rem 0"
       >
