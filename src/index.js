@@ -4,7 +4,6 @@ import { ApolloProvider } from "react-apollo";
 
 import App from "./App";
 
-import "normalize.css";
 import "./index.css";
 import "typeface-montserrat";
 import "typeface-raleway";
