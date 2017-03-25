@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from "react";
 import { Motion, spring } from "react-motion";
 
 import Block from "jsxstyle/Block";
+import InlineBlock from "jsxstyle/InlineBlock";
 import Row from "jsxstyle/Row";
 
 import Container from "./Container";
@@ -30,7 +31,8 @@ export class StaticNavbar extends Component {
     const { hideLinks, homeLinkUrl, style, links } = this.props;
 
     const linkStyle = {
-      color: "#fff",
+      color: "rgba(255,255,255,0.7)",
+      hoverColor: "#fff",
       outline: "none",
       padding: "4px",
       margin: "6px",
@@ -41,7 +43,8 @@ export class StaticNavbar extends Component {
       position: "relative",
       display: "block",
       backgroundColor: "transparent",
-      textDecoration: "none"
+      textDecoration: "none",
+      transition: "color 0.7s ease"
     };
 
     return (
@@ -74,22 +77,22 @@ export class StaticNavbar extends Component {
           </a>
           {!hideLinks &&
             <Row flex="2" alignItems="center" justifyContent="flex-end">
-              {links.map((link, i) => (
-                <Block
-                  key={`${i}-${link.text}`}
-                  margin="0 4px"
-                  border="2px solid transparent"
-                >
-                  {link.callback &&
-                    <a href={link.href} style={linkStyle}>
+              {links.map((link, i) => {
+                const linkProps = link.callback
+                  ? { onClick: link.callback }
+                  : { href: link.href };
+                return (
+                  <Block
+                    key={`${i}-${link.text}`}
+                    margin="0 4px"
+                    border="2px solid transparent"
+                  >
+                    <InlineBlock component="a" props={linkProps} {...linkStyle}>
                       {link.text}
-                    </a>}
-                  {!link.callback &&
-                    <a href={link.href} style={linkStyle}>
-                      {link.text}
-                    </a>}
-                </Block>
-              ))}
+                    </InlineBlock>
+                  </Block>
+                );
+              })}
             </Row>}
         </Row>
       </Block>
