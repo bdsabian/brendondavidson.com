@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "create-react-app": "^1.2.1",
+    "express": "^4.15.2",
     "halogen": "^0.2.0",
     "jsxstyle": "^1.0.2",
     "normalize.css": "^5.0.0",
@@ -35,6 +36,7 @@
     "typeface-raleway": "^0.0.22"
   },
   "scripts": {
+    "now-start": "node server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
