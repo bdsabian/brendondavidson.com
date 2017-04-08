@@ -64,17 +64,18 @@ export class StaticNavbar extends Component {
           alignItems="center"
           display="flex !important"
         >
-          <a
-            style={{
-              color: "#fff",
-              fontSize: "20px",
-              textTransform: "uppercase",
-              textDecoration: "none"
-            }}
-            href={homeLinkUrl}
+          <InlineBlock
+            component="a"
+            props={{ href: homeLinkUrl }}
+            color="rgba(255,255,255,0.7)"
+            hoverColor="#fff"
+            fontSize="20px"
+            textTransform="uppercase"
+            textDecoration="none"
+            transition="color 0.7s ease"
           >
             Brendon Davidson
-          </a>
+          </InlineBlock>
           {!hideLinks &&
             <Row flex="2" alignItems="center" justifyContent="flex-end">
               {links.map((link, i) => {
