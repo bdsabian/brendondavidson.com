@@ -1,0 +1,89 @@
+{
+  "name": "bdsabian/brendondavidson.com",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "Brendon Davidson",
+  "branch": "",
+  "style": {
+    "name": "Material",
+    "componentSet": {
+      "nav": "nav/DarkAbsoluteNav",
+      "header": "header/GradientHeader",
+      "article": "article/BasicArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "Roboto, sans-serif",
+    "heading": {
+      "fontWeight": 500,
+      "letterSpacing": "-0.01em"
+    },
+    "colors": {
+      "text": "#212121",
+      "background": "#fff",
+      "primary": "#2196f3",
+      "secondary": "#1565c0",
+      "highlight": "#ff4081",
+      "border": "#e0e0e0",
+      "muted": "#f5f5f5"
+    },
+    "layout": {
+      "centered": true,
+      "bannerHeight": "80vh",
+      "maxWidth": 896
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/bdsabian/brendondavidson.com",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/website-cra",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "brendondavidson.com",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "brendondavidson.com: ",
+          "url": null
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "bdsabian",
+          "repo": "brendondavidson.com"
+        }
+      ],
+      "text": "v0.1.0"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "<p>git clone <a href=\"https://github.com/bdsabian/brendondavidson.com.git\">https://github.com/bdsabian/brendondavidson.com.git</a></p>\n<p>cd brendondavidson.com</p>\n<p>npm install</p>\n<p>npm start</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/bdsabian/brendondavidson.com",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/bdsabian",
+          "text": "bdsabian"
+        }
+      ]
+    }
+  ]
+}
