@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { gql, graphql } from "react-apollo";
 
 import Block from "jsxstyle/Block";
+import Row from "jsxstyle/Row";
 
 import Button from "./components/Button";
 import Container from "./components/Container";
@@ -29,7 +30,7 @@ export class Skills extends Component {
             enjoy keeping up with the latest technologies and innovations.
           </SectionSubHeading>
           <Block padding="0 0 2.5rem 0" textAlign="center">
-            <div className="layout horizontal wrap center-justified">
+            <Row justifyContent="center" flexWrap="wrap">
               <Button
                 component="a"
                 href="https://www.linkedin.com/in/brendondavidson"
@@ -44,47 +45,42 @@ export class Skills extends Component {
                 />
                 {" "}Find Me On LinkedIn
               </Button>
-            </div>
+            </Row>
           </Block>
-          <div className="layout horizontal wrap">
-            {error && <h4 style={{ color: "#f00" }}>{error}</h4>}
-            {loading && <h4>Loading...</h4>}
+          <Row flexWrap="wrap">
+            {error && <Block color="#f00">{error}</Block>}
+            {loading && <Block>Loading...</Block>}
             {!loading &&
               !error &&
               skills.map(skill => (
                 <Block key={skill.id} flex="1 0 17.5rem" padding="0.4rem">
-                  <div className="layout horizontal wrap">
+                  <Row flexWrap="wrap">
                     <Icon
                       name={skill.icon}
+                      rounded
+                      backgroundColor="orange"
+                      size="1.7rem"
                       style={{
-                        display: "block",
-                        height: "1.7rem",
-                        width: "1.7rem",
-                        borderRadius: "1.7rem",
-                        lineHeight: "1.7rem",
-                        textAlign: "center",
-                        marginRight: "0.55rem",
-                        background: "#e0692c",
-                        color: "white",
-                        float: "left",
-                        transition: "all 300ms"
+                        marginRight: "0.55rem"
                       }}
                     />
-                    <div className="flex">
-                      <h4 className="flex">
+                    <Block flex="1">
+                      <Block component="h4" flex="1">
                         {skill.title}
-                      </h4>
-                      <p style={{ fontSize: "0.9rem" }}>{skill.description}</p>
-                    </div>
-                  </div>
+                      </Block>
+                      <Block component="p" fontSize="0.9rem">
+                        {skill.description}
+                      </Block>
+                    </Block>
+                  </Row>
                 </Block>
               ))}
-          </div>
-          <p style={{ marginBottom: "1.75rem", textAlign: "center" }}>
+          </Row>
+          <Block component="p" marginBottom="1.75rem" textAlign="center">
             I have very minimal experience with the following technologies but am interested in doing more:
             <br /><br />
             <i>Ember.js, React Native, Elm, Clojure</i>
-          </p>
+          </Block>
         </Container>
       </Block>
     );

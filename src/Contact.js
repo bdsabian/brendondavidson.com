@@ -72,27 +72,31 @@ export class Contact extends Component {
           ...style
         };
 
+    const inputComponent = type === "textarea" ? "textarea" : "input";
+    const inputType = type === "textarea" ? null : type;
+
     return (
       <Row alignItems="center" flexWrap="wrap" marginBottom="0.8rem">
         {label &&
-          <label
-            htmlFor={rest.id}
-            style={{
-              flex: "1 0 6.5rem",
-              maxWidth: "12rem",
-              padding: "0.5rem",
-              color: "#777",
-              fontWeight: "500",
-              textTransform: "uppercase"
-            }}
+          <Block
+            component="label"
+            props={{ htmlFor: rest.id }}
+            flex="1 0 6.5rem"
+            maxWidth="12rem"
+            padding="0.5rem"
+            color="#777"
+            fontWeight="500"
+            textTransform="uppercase"
           >
             {label}
-          </label>}
+          </Block>}
         <Col flex="1 0 16.5rem">
-          {type === "textarea" &&
-            <textarea ref={ref} style={inputStyles} {...rest} />}
-          {type !== "textarea" &&
-            <input type={type} ref={ref} style={inputStyles} {...rest} />}
+          <Block
+            component={inputComponent}
+            ref={ref}
+            {...inputStyles}
+            props={{ ...rest, type: inputType }}
+          />
           {error && <Block color="red">{error}</Block>}
         </Col>
       </Row>
@@ -154,15 +158,7 @@ export class Contact extends Component {
                     this.messageField = input;
                   }
                 })}
-                <div style={{ display: "flex" }}>
-                  <Block
-                    component={Button}
-                    flex="1 0 auto"
-                    backgroundColor={theme.form.submitButtonBackgroundColor}
-                  >
-                    Submit
-                  </Block>
-                </div>
+                <Button>Submit</Button>
               </Col>
             </form>}
         </Container>

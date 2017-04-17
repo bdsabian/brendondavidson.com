@@ -48,9 +48,9 @@ export default class Job extends PureComponent {
             </Row>
             {description &&
               <Block marginBottom="1rem">
-                <div
-                  style={{ color: "rgba(74,74,74,.9)" }}
-                  dangerouslySetInnerHTML={{ __html: description }}
+                <Block
+                  color="rgba(74,74,74,.9)"
+                  props={{ dangerouslySetInnerHTML: { __html: description } }}
                 />
               </Block>}
             {technologies &&

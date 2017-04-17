@@ -2,6 +2,7 @@ import React from "react";
 
 import Block from "jsxstyle/Block";
 import Col from "jsxstyle/Col";
+import InlineBlock from "jsxstyle/InlineBlock";
 
 import Button from "./components/Button";
 import Container from "./components/Container";
@@ -25,19 +26,18 @@ export default () => (
           color="#0D5D94"
           style={{ margin: "0.4rem" }}
         >
-          <Icon
-            name="github-square"
-            style={{
-              fontSize: "1.5rem",
-              marginRight: "0.5rem",
-              lineHeight: "24px",
-              verticalAlign: "middle"
-            }}
+          <InlineBlock
+            component={Icon}
+            props={{ name: "github-square" }}
+            fontSize="1.5rem"
+            marginRight="0.5rem"
+            lineHeight="24px"
+            verticalAlign="middle"
           />
           {" "}
-          <span style={{ lineHeight: "24px", verticalAlign: "middle" }}>
+          <InlineBlock lineHeight="24px" verticalAlign="middle">
             View the code for this site on Github
-          </span>
+          </InlineBlock>
         </Button>
       </Col>
     </Container>

@@ -16,6 +16,7 @@ export default class Button extends Component {
     color: "rgba(0, 0, 0, 0.36)",
     nobg: false,
     noborder: false,
+    style: {},
     textColor: "#fff"
   };
 
@@ -27,6 +28,7 @@ export default class Button extends Component {
       component = "button",
       nobg,
       noborder,
+      style,
       textColor,
       ...rest
     } = this.props;
@@ -50,6 +52,7 @@ export default class Button extends Component {
         borderRadius="0.333rem"
         borderColor={noborder ? "transparent" : borderColor}
         padding="0.5rem 1rem"
+        style={style}
         props={rest}
       >
         {children}

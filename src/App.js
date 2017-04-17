@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 
+import Block from "jsxstyle/Block";
+import Col from "jsxstyle/Col";
+
 import About from "./About";
 import Code from "./Code";
 import Contact from "./Contact";
@@ -23,18 +26,14 @@ export class App extends Component {
   render() {
     const { small } = this.props;
     return (
-      <div
-        id="page-top"
-        className="layout vertical"
-        style={{ minHeight: "100vh" }}
-      >
+      <Col id="page-top" minHeight="100vh">
         <Navbar
           links={links}
           hideLinks={small}
           stickAt="600"
           stickyStyle={{ padding: "0.2rem 0" }}
         />
-        <div className="flex-1">
+        <Block flex="1">
           <Intro />
           <About id="about" />
           <Skills id="skills" />
@@ -42,8 +41,8 @@ export class App extends Component {
           <Jobs id="work-history" />
           <Contact id="contact" />
           <Code />
-        </div>
-      </div>
+        </Block>
+      </Col>
     );
   }
 }

@@ -4,6 +4,7 @@ import { ScaleLoader } from "halogen";
 import { Motion, spring } from "react-motion";
 
 import Block from "jsxstyle/Block";
+import Inline from "jsxstyle/Inline";
 import InlineBlock from "jsxstyle/InlineBlock";
 import Col from "jsxstyle/Col";
 
@@ -89,9 +90,9 @@ export class Intro extends Component {
                 >
                   Polyglot developer
                   {" "}
-                  <span style={{ whiteSpace: "nowrap" }}>
+                  <Inline whiteSpace="nowrap">
                     and bilingual world traveler
-                  </span>
+                  </Inline>
                 </InlineBlock>
                 <InlineBlock
                   width={tiny ? "100%" : "auto"}
