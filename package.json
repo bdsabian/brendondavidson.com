@@ -14,9 +14,7 @@
     "pre-commit": "^1.2.2",
     "prettier": "^0.19.0",
     "react-addons-test-utils": "^15.4.2",
-    "react-scripts": "0.9.3",
-    "styled-components": "^1.4.2",
-    "why-did-you-update": "^0.0.8"
+    "react-scripts": "0.9.3"
   },
   "dependencies": {
     "create-react-app": "^1.2.1",
@@ -28,9 +26,7 @@
     "react-apollo": "^1.0.0-rc.2",
     "react-dom": "^15.4.2",
     "react-media": "^1.5.1",
-    "react-modal": "^1.6.5",
     "react-motion": "^0.4.7",
-    "react-router-dom": "next",
     "smoothscroll": "^0.3.0",
     "typeface-montserrat": "^0.0.22",
     "typeface-raleway": "^0.0.22"
