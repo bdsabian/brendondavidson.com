@@ -1,7 +1,6 @@
 import React from "react";
 import { storiesOf, action, linkTo } from "@kadira/storybook";
-import colors from "../../lib/colors";
-
+import { colors } from "../../lib/theme";
 import Carousel from "../Carousel";
 
 const images = [

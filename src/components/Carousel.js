@@ -102,6 +102,7 @@ export default class Carousel extends Component {
       images,
       showControls
     } = this.props;
+
     const current = this.isControlled()
       ? this.props.current
       : this.state.current;
