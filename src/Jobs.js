@@ -45,7 +45,13 @@ export class Jobs extends Component {
               borderColor={theme.projects.downloadButton.borderColor}
               textColor={theme.projects.downloadButton.color}
             >
-              <Icon name="download" style={{ marginRight: "0.5rem" }} />
+              <Icon
+                name="download"
+                style={{
+                  color: theme.projects.downloadButton.color,
+                  marginRight: "0.5rem"
+                }}
+              />
               {" "}Download My Resume
             </Button>
           </Row>
