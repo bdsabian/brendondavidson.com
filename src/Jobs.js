@@ -39,7 +39,7 @@ export class Jobs extends Component {
           <Row flexWrap="wrap" justifyContent="center" paddingTop="2.5rem">
             <Button
               component="a"
-              href="downloads/BrendonDavidson_Resume2017.pdf"
+              href="downloads/Resume - Brendon Davidson.pdf"
               target="_blank"
               nobg
               borderColor={theme.projects.downloadButton.borderColor}
