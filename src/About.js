@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { gql, graphql } from "react-apollo";
 
 import Block from "jsxstyle/Block";
 import Col from "jsxstyle/Col";
@@ -10,11 +9,25 @@ import SectionHeading from "./components/SectionHeading";
 
 import theme from "./lib/theme";
 
+const aboutParagraphs = [
+  `I'm Brendon Davidson, a 36-year-old web developer from Rochester, NY currently living near
+  Puerto Vallarta, Mexico. My 10+ years of experience include <span class="highlight">web application architecture</span>,
+  <span class="highlight">database design</span>, and both <span class="highlight">backend and frontend development</span>
+  using a variety of languages and frameworks.`,
+  `Throughout my career I've amassed a wide range of knowledge and skills and continue to enjoy keeping up with the latest innovations.  
+  I've designed and built many systems from simple <span class="highlight">responsive web pages</span> to a 
+  <span class="highlight">highly scalable platform for measuring ad engagement</span>  for an NYC-based startup that was eventually 
+  purchased by one of the largest market research companies in the world.`,
+  `My biggest passions apart from technology are travel and photography. When I'm not working, <span class="highlight">I love to explore the world</span>
+  , seeking out new sights, cultures, and experiences. I've been fortunate to      have climbed Mt. Kilimanjaro, rafted through the Grand Canyon, gone 
+  ziplining in the rainforests of Costa Rica, walked through ancient Macchu Picchu, and more.`,
+  "<b>Tambien hablo español!</b>"
+];
+
 export class About extends Component {
   render() {
     const {
-      id,
-      data: { error, loading, allTexts: aboutParagraphs }
+      id
     } = this.props;
     return (
       <Block
@@ -50,20 +63,16 @@ export class About extends Component {
           </Block>
           <Col flex="2" flexBasis="28rem" fontFamily="Raleway" paddingLeft="0">
             <SectionHeading>About Me</SectionHeading>
-            {error && <Block component="h3" color="#f00">{error}</Block>}
-            {loading && <Block component="h3">Loading...</Block>}
-            {!error &&
-              !loading &&
-              aboutParagraphs.map(p => (
-                <Block
-                  component="p"
-                  key={p.id}
-                  marginBottom="1.75rem"
-                  fontSize="1.1em"
-                  textAlign="left"
-                  props={{ dangerouslySetInnerHTML: { __html: p.value } }}
-                />
-              ))}
+            {aboutParagraphs.map((p, i) => (
+              <Block
+                component="p"
+                key={i}
+                marginBottom="1.75rem"
+                fontSize="1.1em"
+                textAlign="left"
+                props={{ dangerouslySetInnerHTML: { __html: p } }}
+              />
+            ))}
           </Col>
         </Row>
       </Block>
@@ -71,13 +80,4 @@ export class About extends Component {
   }
 }
 
-export default graphql(
-  gql`
-  query {
-    allTexts {
-      id
-      value
-    }
-  }
-`
-)(About);
+export default About;

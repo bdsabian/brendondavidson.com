@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { gql, graphql } from "react-apollo";
-import { ScaleLoader } from "halogen";
 import { Motion, spring } from "react-motion";
 
 import Block from "jsxstyle/Block";
@@ -12,20 +10,24 @@ import Button from "./components/Button";
 import Carousel from "./components/Carousel";
 import Container from "./components/Container";
 
-import compose from "./lib/compose";
 import deviceSize from "./lib/deviceSize";
 import theme from "./lib/theme";
 
+const images = [
+  "https://res.cloudinary.com/duok7ibrq/image/upload/v1484246852/sayu-muertos_t7gbsj.jpg",
+  "https://res.cloudinary.com/duok7ibrq/image/upload/v1484246853/sayu-sunset_xdxkhi.jpg",
+  "https://res.cloudinary.com/duok7ibrq/image/upload/v1484246849/yelapa-beach_emqau0.jpg",
+  "https://res.cloudinary.com/duok7ibrq/image/upload/v1484246849/agaves_bqhxe1.jpg"
+];
+
 export class Intro extends Component {
   render() {
-    const { data, id, tiny } = this.props;
-    const { loading, allImages } = data;
+    const { id, tiny } = this.props;
 
     const height = "42rem";
     const learnMoreButton = (
       <Button component="a" href="#about">Learn About Me</Button>
     );
-    const images = allImages ? allImages.map(i => i.src) : [];
     const springConfig = { stiffness: 120, damping: 20 };
     return (
       <Block
@@ -52,22 +54,13 @@ export class Intro extends Component {
               height={height}
               transform={`translateX(${x}px), translateY(${y}px)`}
             >
-              {loading &&
-                <Col
-                  position="absolute"
-                  alignItems="center"
-                  justifyContent="center"
-                  width="100%"
-                >
-                  <ScaleLoader />
-                </Col>}
               <Col
                 component={Container}
                 alignItems="flex-start"
                 width="100%"
                 paddingLeft={tiny ? 0 : null}
                 paddingRight={tiny ? 0 : null}
-                opacity={loading ? 0 : 1}
+                opacity={1}
                 transition="opacity 0.4s ease"
               >
                 <Block
@@ -117,17 +110,4 @@ export class Intro extends Component {
   }
 }
 
-const enhance = compose(
-  graphql(
-    gql`
-    query {
-      allImages {
-        src
-      }
-    }
-  `
-  ),
-  deviceSize
-);
-
-export default enhance(Intro);
+export default deviceSize(Intro);

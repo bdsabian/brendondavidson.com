@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { gql, graphql } from "react-apollo";
 
 import Block from "jsxstyle/Block";
 import Row from "jsxstyle/Row";
@@ -12,9 +11,42 @@ import SectionSubHeading from "./components/SectionSubHeading";
 
 import theme from "./lib/theme";
 
+const skills = [
+  {
+    icon: "code",
+    title: "LANGUAGES + FRAMEWORKS",
+    description: "HTML • CSS • Flexbox • Javascript (including ES6/7) • Node • React • Ruby/Rails • Java • JSP • JSF • Spring • PHP • C/C++ • C# • Visual Basic"
+  },
+  {
+    icon: "database",
+    title: "DATABASES + SEARCH",
+    description: "MySQL • PostgreSQL • MS SQL Server • Sphinx Search • Algolia • Memcache • Redis"
+  },
+  {
+    icon: "server",
+    title: "HOSTING + SERVER MANAGEMENT",
+    description: "Linux • Apache • Nginx • Engine Yard, Heroku • Zeit Now • AppNexus • AWS • EC2 • S3 • SSL"
+  },
+  {
+    icon: "wrench",
+    title: "DEVELOPMENT TOOLS",
+    description: "Git • Webpack • Broccoli • Grunt / Gulp • VS Code • Hyper.app • ZSH • tmux • Chrome Dev Tools • RubyMine • IntelliJ IDEA • vi • SVN • CVS"
+  },
+  {
+    icon: "globe",
+    title: "APIS + SERVICES",
+    description: "Github • Google Analytics • Google Fonts • Google Cloud • Firebase • Font Awesome • Mailchimp • SurveyMonkey • Optimizely • Algolia • Many more"
+  },
+  {
+    icon: "line-chart",
+    title: "PRODUCTIVITY",
+    description: "Word • Excel • Powerpoint • Outlook • Skype • GoToMeeting • Join.Me • Evernote • Pivotal Tracker • Jira • Slack"
+  }
+];
+
 export class Skills extends Component {
   render() {
-    const { id, data: { error, loading, allSkills: skills } } = this.props;
+    const { id } = this.props;
 
     return (
       <Block
@@ -48,33 +80,29 @@ export class Skills extends Component {
             </Row>
           </Block>
           <Row flexWrap="wrap">
-            {error && <Block color="#f00">{error}</Block>}
-            {loading && <Block>Loading...</Block>}
-            {!loading &&
-              !error &&
-              skills.map(skill => (
-                <Block key={skill.id} flex="1 0 17.5rem" padding="0.4rem">
-                  <Row flexWrap="wrap">
-                    <Icon
-                      name={skill.icon}
-                      rounded
-                      backgroundColor="orange"
-                      size="1.7rem"
-                      style={{
-                        marginRight: "0.55rem"
-                      }}
-                    />
-                    <Block flex="1">
-                      <Block component="h4" flex="1">
-                        {skill.title}
-                      </Block>
-                      <Block component="p" fontSize="0.9rem">
-                        {skill.description}
-                      </Block>
+            {skills.map((skill, i) => (
+              <Block key={i} flex="1 0 17.5rem" padding="0.4rem">
+                <Row flexWrap="wrap">
+                  <Icon
+                    name={skill.icon}
+                    rounded
+                    backgroundColor="orange"
+                    size="1.7rem"
+                    style={{
+                      marginRight: "0.55rem"
+                    }}
+                  />
+                  <Block flex="1">
+                    <Block component="h4" flex="1">
+                      {skill.title}
                     </Block>
-                  </Row>
-                </Block>
-              ))}
+                    <Block component="p" fontSize="0.9rem">
+                      {skill.description}
+                    </Block>
+                  </Block>
+                </Row>
+              </Block>
+            ))}
           </Row>
           <Block component="p" marginBottom="1.75rem" textAlign="center">
             I have very minimal experience with the following technologies but am interested in doing more:
@@ -87,15 +115,4 @@ export class Skills extends Component {
   }
 }
 
-export default graphql(
-  gql`
-  query {
-    allSkills {
-      id
-      icon
-      title
-      description
-    }
-  }
-`
-)(Skills);
+export default Skills;
