@@ -23,7 +23,12 @@ export default {
   },
   contact: {
     backgroundColor: colors.lightGray,
-    color: colors.black
+    color: colors.black,
+    contactButton: {
+      backgroundColor: colors.white,
+      borderColor: colors.orange,
+      color: colors.orange
+    }
   },
   footer: {
     backgroundColor: colors.navy,

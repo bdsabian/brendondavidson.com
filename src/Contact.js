@@ -7,6 +7,7 @@ import Row from "jsxstyle/Row";
 
 import Button from "./components/Button";
 import Container from "./components/Container";
+import Icon from "./components/Icon";
 import SectionHeading from "./components/SectionHeading";
 import SectionSubHeading from "./components/SectionSubHeading";
 
@@ -113,12 +114,28 @@ export class Contact extends Component {
         backgroundColor={theme.contact.backgroundColor}
         padding="1.75rem 0"
       >
-        <Container style={{ maxWidth: "40rem" }}>
+        <Container style={{ maxWidth: "40rem", textAlign: "center" }}>
           <SectionHeading>Contact Me</SectionHeading>
           <SectionSubHeading>
             I may be able to help you with your next project!
           </SectionSubHeading>
-          {submitted &&
+
+          <Button
+            component="a"
+            href="mailto:brendon@brendondavidson.com"
+            color={theme.contact.contactButton.backgroundColor}
+            borderColor={theme.contact.contactButton.borderColor}
+            textColor={theme.contact.contactButton.color}
+          >
+            <Icon
+              color={theme.contact.contactButton.borderColor}
+              name="envelope"
+              style={{ marginRight: "0.5rem" }}
+            />
+            {" "}Email me (brendon@brendondavidson.com)
+          </Button>
+          {false &&
+            submitted &&
             <Block
               padding="15px"
               fontWeight="bold"
@@ -127,7 +144,8 @@ export class Contact extends Component {
             >
               Thanks for reaching out!  I'll get back to you ASAP.
             </Block>}
-          {!submitted &&
+          {false &&
+            !submitted &&
             <form onSubmit={this.handleSubmit}>
               <Col>
                 {this.renderField({
