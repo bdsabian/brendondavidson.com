@@ -10,8 +10,8 @@ import SectionHeading from "./components/SectionHeading";
 import theme from "./lib/theme";
 
 const aboutParagraphs = [
-  `I'm Brendon Davidson, a 36-year-old web developer from Rochester, NY currently living near
-  Puerto Vallarta, Mexico. My 10+ years of experience include <span class="highlight">web application architecture</span>,
+  `I'm Brendon Davidson, a 36-year-old web developer from Rochester, NY currently living in Toronto, Canada. 
+  My 10+ years of experience include <span class="highlight">web application architecture</span>,
   <span class="highlight">database design</span>, and both <span class="highlight">backend and frontend development</span>
   using a variety of languages and frameworks.`,
   `Throughout my career I've amassed a wide range of knowledge and skills and continue to enjoy keeping up with the latest innovations.  
