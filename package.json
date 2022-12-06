@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "create-react-app": "^1.2.1",
-    "express": "^4.15.2",
+    "express": "^4.17.3",
     "halogen": "^0.2.0",
     "jsxstyle": "^1.0.2",
     "normalize.css": "^5.0.0",
